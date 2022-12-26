@@ -7,9 +7,9 @@ module OmniAuth
     class Doorkeeper < OmniAuth::Strategies::OAuth2
 
       option :client_options, {
-        :site          => ENV['DOORKEEPER_APP_URL'],
-        :authorize_url => '/oauth/authorize',
-        :token_url     => '/oauth/token',
+        :site          => 'https://p3sixty-crmified-dev.herokuapp.com',
+        :authorize_url => 'https://p3sixty-crmified-dev.herokuapp.com/oauth/authorize',
+        :token_url     => 'https://p3sixty-crmified-dev.herokuapp.com/oauth/token',
         :grant_type    => 'authorization_code'
       }
       option :authorize_options, [
