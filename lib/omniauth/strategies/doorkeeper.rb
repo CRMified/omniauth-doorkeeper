@@ -16,6 +16,7 @@ module OmniAuth
         :redirect_uri,
         :grant_type
       ]
+      option :scope, 'read'
       
       def callback_url
         full_host + script_name + callback_path
