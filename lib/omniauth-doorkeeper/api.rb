@@ -1,10 +1,10 @@
 require 'httparty'
 
 module OmniAuth
-  module TimelyApp
+  module Doorkeeper
     class API
       include HTTParty
-      base_uri 'https://api.timelyapp.com/1.1'
+      base_uri ENV['DOORKEEPER_APP_URL']
 
       def initialize(token)
         @access_token = token

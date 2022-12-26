@@ -7,9 +7,9 @@ module OmniAuth
     class Timelyapp < OmniAuth::Strategies::OAuth2
 
       option :client_options, {
-        :site          => 'https://api.timelyapp.com',
-        :authorize_url => '/1.1/oauth/authorize',
-        :token_url     => '/1.1/oauth/token',
+        :site          => ENV['DOORKEEPER_APP_URL'],
+        :authorize_url => '/oauth/authorize',
+        :token_url     => '/oauth/token',
         :grant_type    => 'authorization_code'
       }
       option :authorize_options, [
@@ -59,20 +59,17 @@ module OmniAuth
 
       def raw_info
         access_token.options[:mode] = :header
-        if @raw_info.nil?
-          acct = access_token.get('/1.1/accounts').parsed.first
-          acct_id = acct['id'] 
-        end
-        @raw_info ||= access_token.get("/1.1/#{acct_id}/users/current").parsed.merge({account: acct})
+ 
+        @raw_info ||= access_token.get("/api/v1/me.json").parsed
       end
 
       extra do
-        accts =  access_token.get('/1.1/accounts').parsed
-        acctid = accts.first['id']
-        {
-          'account_id' => acctid,
-          'accounts' => accts
-         }
+        #accts =  access_token.get('/1.1/accounts').parsed
+        #acctid = accts.first['id']
+        #{
+        #  'account_id' => acctid,
+        #  'accounts' => accts
+        # }
       end
 
     end

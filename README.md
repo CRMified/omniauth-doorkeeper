@@ -7,12 +7,12 @@
 ```ruby
 require "sinatra"
 require "omniauth"
-require "omniauth-timelyapp"
+require "omniauth-doorkeeper"
 
 class MyApplication < Sinatra::Base
   use Rack::Session
   use OmniAuth::Builder do
-    provider :timelyapp, ENV['TIMELYAPP_KEY'], ENV['TIMELYAPP_SECRET']
+    provider :timelyapp, ENV['OAUTH_DOORKEEPER_CLIENT_ID'], ENV['DOORKEEPER_CLIENT_SECRET']
   end
 end
 ```
@@ -20,4 +20,3 @@ end
 
 ## Resources
 
-* [Documentation: This document provides a full list of all Timely APIs currently available](https://dev.timelyapp.com/)
