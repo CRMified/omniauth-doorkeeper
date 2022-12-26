@@ -53,7 +53,7 @@ module OmniAuth
 
       credentials do
         hash = {'token' => access_token.token}
-        hash.merge!('refresh_token' => access_token.refresh_token) if access_token.refresh_token
+        #hash.merge!('refresh_token' => access_token.refresh_token) if access_token.refresh_token
         hash
       end
 
@@ -63,14 +63,14 @@ module OmniAuth
         @raw_info ||= access_token.get("/api/v1/me.json").parsed
       end
 
-      extra do
+      #extra do
         #accts =  access_token.get('/1.1/accounts').parsed
         #acctid = accts.first['id']
         #{
         #  'account_id' => acctid,
         #  'accounts' => accts
         # }
-      end
+      #end
 
     end
 
