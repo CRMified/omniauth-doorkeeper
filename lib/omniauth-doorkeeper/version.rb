@@ -1,5 +1,5 @@
 module OmniAuth
-  module Timelyapp
+  module Doorkeeper
     VERSION = '1.1.0'
   end
 end
