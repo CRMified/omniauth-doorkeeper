@@ -4,7 +4,7 @@ require 'base64'
 
 module OmniAuth
   module Strategies
-    class Timelyapp < OmniAuth::Strategies::OAuth2
+    class Doorkeeper < OmniAuth::Strategies::OAuth2
 
       option :client_options, {
         :site          => ENV['DOORKEEPER_APP_URL'],
