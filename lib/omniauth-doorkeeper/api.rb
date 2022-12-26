@@ -4,7 +4,7 @@ module OmniAuth
   module Doorkeeper
     class API
       include HTTParty
-      base_uri 'https://p3sixty-crmified-dev.herokuapp.com/api/v1'
+      base_uri 'https://crmified-dev.p3sixty.io/api/v1'
 
       def initialize(token)
         @access_token = token
